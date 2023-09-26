@@ -10,7 +10,7 @@ def main():
     tmr = 0
     img = pg.image.load("ex01/fig/3.png")
     ton_img = pg.transform.flip(img, True, False)
-    ton10_img = pg.transform.rotate(ton_img, 10)
+    ton10_img = pg.transform.rotozoom(ton_img, 10, 1.0)
     lst = [ton_img, ton10_img]
     
     while True:
@@ -18,10 +18,7 @@ def main():
             if event.type == pg.QUIT: return
 
         screen.blit(bg_img, [0, 0])
-        for i in range(len(lst)):
-            img_rct = lst[i].get_rect()
-            img_rct.center = 300, 200
-            screen.blit(lst[i], img_rct)
+        screen.blit(lst[tmr%2], [300, 200])
         
         pg.display.update()
         tmr += 1        
