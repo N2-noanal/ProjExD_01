@@ -17,8 +17,8 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT: return
             
-        x = tmr%1600
-        if 0 <= tmr%20 < 10:
+        x = tmr%3200
+        if 0 <= tmr%200 < 100:
             i = 0
         else:
             i = 1
@@ -29,7 +29,7 @@ def main():
         
         pg.display.update()
         tmr += 1        
-        clock.tick(20)
+        clock.tick(200)
 
 
 if __name__ == "__main__":
